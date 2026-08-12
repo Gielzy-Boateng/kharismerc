@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { PhoneIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/brand-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { siteConfig } from "@/lib/site-config";
 
 const nav = [
@@ -17,14 +17,7 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-2.5">
-          <Image
-            src={siteConfig.logo}
-            alt="Kharismerc eagle logo"
-            width={40}
-            height={40}
-            className="size-9 shrink-0 object-contain"
-            priority
-          />
+          <BrandLogo sizeClassName="size-9" priority />
           <span className="min-w-0 leading-tight">
             <span className="block truncate font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.08em] uppercase sm:text-[0.95rem]">
               Kharismerc
@@ -49,23 +42,20 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button
-            size="sm"
-            className="hidden rounded-full bg-foreground text-background hover:bg-foreground/90 sm:inline-flex"
-            asChild
+          <a
+            href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}
+            className="hidden sm:inline-flex"
           >
-            <a href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}>
+            <ShimmerButton className="h-9 rounded-full bg-foreground px-4 text-xs text-background shadow-foreground/20">
               <PhoneIcon className="size-3.5" />
               Call us
-            </a>
-          </Button>
-          <Button
-            size="sm"
-            className="rounded-full font-semibold sm:hidden"
-            asChild
-          >
-            <Link href="/contact">Contact</Link>
-          </Button>
+            </ShimmerButton>
+          </a>
+          <Link href="/contact" className="sm:hidden">
+            <ShimmerButton className="h-9 rounded-full px-4 text-xs">
+              Contact
+            </ShimmerButton>
+          </Link>
         </div>
       </div>
     </header>

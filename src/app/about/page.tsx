@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { HandshakeIcon, HeartIcon, ShieldCheckIcon, UsersIcon } from "lucide-react";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
@@ -86,13 +86,10 @@ export default function AboutPage() {
             </div>
           </BlurFade>
           <BlurFade delay={0.12}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-muted">
-              <Image
-                src={siteConfig.logo}
-                alt="Kharismerc Business Solutions logo"
-                fill
-                className="object-contain p-10"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+            <div className="flex justify-center">
+              <BrandLogo
+                sizeClassName="size-48 sm:size-56"
+                className="shadow-lg"
               />
             </div>
           </BlurFade>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { siteConfig, services } from "@/lib/site-config";
 
 const companyLinks = [
@@ -17,15 +17,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8">
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
-            <span className="flex size-12 items-center justify-center rounded-full bg-background p-1.5">
-              <Image
-                src={siteConfig.logo}
-                alt="Kharismerc logo"
-                width={40}
-                height={40}
-                className="size-9 object-contain"
-              />
-            </span>
+            <BrandLogo sizeClassName="size-12" />
             <span>
               <span className="block font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.1em] uppercase">
                 Kharismerc

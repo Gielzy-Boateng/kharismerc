@@ -15,6 +15,7 @@ import {
   WalletIcon,
 } from "lucide-react";
 
+import { BrandLogo } from "@/components/brand-logo";
 import {
   Accordion,
   AccordionContent,
@@ -105,16 +106,11 @@ export default function Home() {
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pt-28 pb-16 lg:px-8 lg:pt-32">
           <BlurFade delay={0} direction="down">
             <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-card p-2 shadow-[0_0_0_4px_oklch(0.82_0.16_90_/_0.35)] ring-1 ring-border sm:size-24">
-                <Image
-                  src={siteConfig.logo}
-                  alt="Kharismerc eagle logo"
-                  width={88}
-                  height={88}
-                  className="size-16 object-contain sm:size-[4.5rem]"
-                  priority
-                />
-              </span>
+              <BrandLogo
+                sizeClassName="size-20 sm:size-24"
+                className="shadow-[0_0_0_4px_oklch(0.82_0.16_90_/_0.35)]"
+                priority
+              />
               <div>
                 <p className="font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-[0.06em] text-balance uppercase sm:text-5xl lg:text-6xl">
                   Kharismerc
