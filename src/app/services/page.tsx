@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
+import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { services, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -66,13 +66,13 @@ export default function ServicesPage() {
                     <p className="mt-4 text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
-                    <Button
-                      size="lg"
-                      className="mt-6 rounded-full bg-foreground text-background hover:bg-foreground/90"
-                      asChild
-                    >
-                      <Link href="/contact">{service.cta}</Link>
-                    </Button>
+                    <div className="mt-6">
+                      <Link href="/contact">
+                        <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/20">
+                          {service.cta}
+                        </ShimmerButton>
+                      </Link>
+                    </div>
                   </div>
                   <div
                     className={`relative aspect-[5/4] overflow-hidden rounded-3xl bg-muted ${
@@ -101,13 +101,13 @@ export default function ServicesPage() {
             Tell us your goal — we&apos;ll point you to the right team. Call{" "}
             {siteConfig.phones[0]} or email {siteConfig.email}.
           </p>
-          <Button
-            size="lg"
-            className="mt-6 rounded-full font-semibold"
-            asChild
-          >
-            <Link href="/contact">Contact us today</Link>
-          </Button>
+          <div className="mt-6 flex justify-center">
+            <Link href="/contact">
+              <ShimmerButton className="rounded-full">
+                Contact us today
+              </ShimmerButton>
+            </Link>
+          </div>
         </div>
       </section>
 

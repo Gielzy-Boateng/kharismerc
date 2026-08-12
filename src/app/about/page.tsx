@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { HandshakeIcon, HeartIcon, ShieldCheckIcon, UsersIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { NumberTicker } from "@/components/velora/number-ticker";
+import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -138,13 +138,11 @@ export default function AboutPage() {
           </div>
           <BlurFade delay={0.2}>
             <div className="mt-12 text-center">
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="/contact">Work with us</Link>
-              </Button>
+              <Link href="/contact">
+                <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/20">
+                  Work with us
+                </ShimmerButton>
+              </Link>
             </div>
           </BlurFade>
         </div>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { siteConfig } from "@/lib/site-config";
 
 /**
@@ -72,10 +73,10 @@ export function ContactForm() {
           required
         />
       </div>
-      <Button type="submit" size="lg" className="mt-6 w-full rounded-full">
+      <ShimmerButton type="submit" className="mt-6 w-full rounded-full">
         <SendIcon className="size-4" />
         Send message
-      </Button>
+      </ShimmerButton>
       <p className="mt-4 text-center text-xs text-muted-foreground">
         Or call {siteConfig.phones[0]} / email {siteConfig.email}
       </p>

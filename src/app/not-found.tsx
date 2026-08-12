@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { HomeIcon, PhoneIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BlurFade } from "@/components/velora/blur-fade";
+import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { siteConfig } from "@/lib/site-config";
 
 export default function NotFound() {
@@ -29,22 +29,18 @@ export default function NotFound() {
               and we&apos;ll point you the right way.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground font-semibold text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="/">
+              <Link href="/">
+                <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/20">
                   <HomeIcon className="size-4" />
                   Back home
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <Link href="/contact">
+                </ShimmerButton>
+              </Link>
+              <Link href="/contact">
+                <ShimmerButton className="rounded-full">
                   <PhoneIcon className="size-4" />
                   Contact us
-                </Link>
-              </Button>
+                </ShimmerButton>
+              </Link>
             </div>
             <p className="mt-8 text-sm text-primary italic">
               “{siteConfig.motto}”

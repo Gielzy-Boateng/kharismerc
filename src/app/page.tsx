@@ -15,7 +15,6 @@ import {
   WalletIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
@@ -254,13 +253,11 @@ export default function Home() {
 
           <BlurFade delay={0.2}>
             <div className="mt-12">
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="/services">See all services in detail</Link>
-              </Button>
+              <Link href="/services">
+                <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/20">
+                  See all services in detail
+                </ShimmerButton>
+              </Link>
             </div>
           </BlurFade>
         </div>
@@ -454,23 +451,16 @@ export default function Home() {
               forward.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground font-semibold text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="/contact">Contact us today</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                asChild
-              >
-                <a href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}>
+              <Link href="/contact">
+                <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/25">
+                  Contact us today
+                </ShimmerButton>
+              </Link>
+              <a href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}>
+                <ShimmerButton className="rounded-full border-2 border-primary-foreground/40 bg-transparent text-primary-foreground shadow-none hover:bg-primary-foreground/10">
                   {siteConfig.phones[0]}
-                </a>
-              </Button>
+                </ShimmerButton>
+              </a>
             </div>
           </BlurFade>
         </div>
