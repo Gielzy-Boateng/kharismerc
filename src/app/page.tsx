@@ -157,21 +157,11 @@ export default function Home() {
                   Find a job easily
                 </ShimmerButton>
               </Link>
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground font-semibold text-background hover:bg-foreground/90"
-                asChild
-              >
-                <Link href="/contact">Apply now</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full"
-                asChild
-              >
-                <Link href="/contact">Contact us today</Link>
-              </Button>
+              <Link href="/contact">
+                <ShimmerButton className="rounded-full bg-foreground text-background shadow-foreground/20">
+                  Contact us today
+                </ShimmerButton>
+              </Link>
             </div>
           </BlurFade>
 
