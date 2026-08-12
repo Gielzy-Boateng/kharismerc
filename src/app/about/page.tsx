@@ -99,7 +99,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-border/40 bg-secondary py-14 text-secondary-foreground">
+      <section className="border-y border-border/40 bg-foreground py-14 text-background">
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 px-4 lg:grid-cols-4 lg:px-8">
           {stats.map((stat, i) => (
             <BlurFade key={stat.label} delay={i * 0.08}>
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 <span className="font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-tight text-primary">
                   <NumberTicker value={stat.value} suffix={stat.suffix} />
                 </span>
-                <span className="text-sm text-white/65">{stat.label}</span>
+                <span className="text-sm text-background/65">{stat.label}</span>
               </div>
             </BlurFade>
           ))}
@@ -125,7 +125,7 @@ export default function AboutPage() {
             {principles.map((p, i) => (
               <BlurFade key={p.title} delay={i * 0.08}>
                 <div className="border-b border-border/60 pb-8">
-                  <div className="mb-4 w-fit rounded-full bg-secondary p-3 text-primary">
+                  <div className="mb-4 w-fit rounded-full bg-foreground p-3 text-primary">
                     {p.icon}
                   </div>
                   <h3 className="text-lg font-semibold">{p.title}</h3>
@@ -140,7 +140,7 @@ export default function AboutPage() {
             <div className="mt-12 text-center">
               <Button
                 size="lg"
-                className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                className="rounded-full bg-foreground text-background hover:bg-foreground/90"
                 asChild
               >
                 <Link href="/contact">Work with us</Link>

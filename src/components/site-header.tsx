@@ -51,7 +51,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Button
             size="sm"
-            className="hidden rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 sm:inline-flex"
+            className="hidden rounded-full bg-foreground text-background hover:bg-foreground/90 sm:inline-flex"
             asChild
           >
             <a href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}>

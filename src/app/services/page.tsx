@@ -68,7 +68,7 @@ export default function ServicesPage() {
                     </p>
                     <Button
                       size="lg"
-                      className="mt-6 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                      className="mt-6 rounded-full bg-foreground text-background hover:bg-foreground/90"
                       asChild
                     >
                       <Link href="/contact">{service.cta}</Link>

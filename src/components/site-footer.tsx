@@ -13,11 +13,11 @@ const companyLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/50 bg-secondary text-secondary-foreground">
+    <footer className="border-t border-border/50 bg-foreground text-background">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.5fr_1fr_1fr] lg:px-8">
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
-            <span className="flex size-12 items-center justify-center rounded-full bg-white p-1.5">
+            <span className="flex size-12 items-center justify-center rounded-full bg-background p-1.5">
               <Image
                 src={siteConfig.logo}
                 alt="Kharismerc logo"
@@ -35,7 +35,7 @@ export function SiteFooter() {
               </span>
             </span>
           </Link>
-          <p className="mt-4 max-w-sm text-sm text-white/70">
+          <p className="mt-4 max-w-sm text-sm text-background/70">
             Accra&apos;s one-stop partner for recruitment, registration,
             cleaning, surveying, real estate, travel, and creative services.
           </p>
@@ -48,12 +48,12 @@ export function SiteFooter() {
           <h3 className="text-sm font-semibold tracking-wide text-primary uppercase">
             Company
           </h3>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+          <ul className="mt-4 space-y-2.5 text-sm text-background/70">
             {companyLinks.map((link) => (
               <li key={link.text}>
                 <Link
                   href={link.href}
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-background"
                 >
                   {link.text}
                 </Link>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           <h3 className="text-sm font-semibold tracking-wide text-primary uppercase">
             Contact
           </h3>
-          <ul className="mt-4 space-y-3 text-sm text-white/70">
+          <ul className="mt-4 space-y-3 text-sm text-background/70">
             <li className="flex items-start gap-2.5">
               <MapPinIcon className="mt-0.5 size-4 shrink-0 text-primary" />
               <span>
@@ -79,7 +79,7 @@ export function SiteFooter() {
               <MailIcon className="size-4 shrink-0 text-primary" />
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="transition-colors hover:text-white"
+                className="transition-colors hover:text-background"
               >
                 {siteConfig.email}
               </a>
@@ -89,7 +89,7 @@ export function SiteFooter() {
                 <PhoneIcon className="size-4 shrink-0 text-primary" />
                 <a
                   href={`tel:${phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-white"
+                  className="transition-colors hover:text-background"
                 >
                   {phone}
                 </a>
@@ -99,8 +99,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-xs text-white/50 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div className="border-t border-background/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-xs text-background/50 md:flex-row md:items-center md:justify-between lg:px-8">
           <span>
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </span>

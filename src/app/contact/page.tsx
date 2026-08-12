@@ -73,7 +73,7 @@ export default function ContactPage() {
               {channels.map((channel) => {
                 const content = (
                   <>
-                    <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                    <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-foreground text-primary">
                       {channel.icon}
                     </span>
                     <div>

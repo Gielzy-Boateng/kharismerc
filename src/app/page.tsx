@@ -83,30 +83,30 @@ export default function Home() {
       <ScrollProgress />
       <SiteHeader />
 
-      {/* Hero — brand first, one composition */}
-      <section className="relative isolate min-h-[100svh] overflow-hidden bg-secondary text-secondary-foreground">
+      {/* Hero — brand first, theme-aware */}
+      <section className="relative isolate min-h-[100svh] overflow-hidden bg-background text-foreground">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,oklch(0.82_0.16_90_/_0.35),transparent_55%),linear-gradient(160deg,oklch(0.16_0_0)_0%,oklch(0.22_0.02_90)_45%,oklch(0.14_0_0)_100%)]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-20 top-24 size-[28rem] rounded-full bg-primary/20 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_-10%,oklch(0.82_0.16_90_/_0.28),transparent_55%)] dark:bg-[radial-gradient(ellipse_80%_55%_at_50%_-10%,oklch(0.82_0.16_90_/_0.22),transparent_55%)]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-16 bottom-10 size-[22rem] rounded-full bg-primary/10 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-muted/60"
         />
-        <Particles
-          quantity={40}
-          className="absolute inset-0 opacity-40"
-          color="245, 197, 24"
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 top-24 size-[28rem] rounded-full bg-primary/25 blur-3xl dark:bg-primary/20"
         />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-16 bottom-10 size-[22rem] rounded-full bg-primary/15 blur-3xl"
+        />
+        <Particles quantity={40} className="absolute inset-0 opacity-40" />
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pt-28 pb-16 lg:px-8 lg:pt-32">
           <BlurFade delay={0} direction="down">
             <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-white p-2 shadow-[0_0_0_4px_oklch(0.82_0.16_90_/_0.35)] sm:size-24">
+              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-card p-2 shadow-[0_0_0_4px_oklch(0.82_0.16_90_/_0.35)] ring-1 ring-border sm:size-24">
                 <Image
                   src={siteConfig.logo}
                   alt="Kharismerc eagle logo"
@@ -128,7 +128,7 @@ export default function Home() {
           </BlurFade>
 
           <h1 className="mt-10 max-w-4xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
-            <TextReveal text="One partner for" className="text-white" />{" "}
+            <TextReveal text="One partner for" className="text-foreground" />{" "}
             <AnimatedGradientText>
               <Typewriter
                 words={[
@@ -142,7 +142,7 @@ export default function Home() {
           </h1>
 
           <BlurFade delay={0.35}>
-            <p className="mt-5 max-w-xl text-base text-white/70 text-pretty sm:text-lg">
+            <p className="mt-5 max-w-xl text-base text-muted-foreground text-pretty sm:text-lg">
               From finding work and registering your company to cleaning,
               surveying, and building — we deliver practical solutions across
               Accra with care you can trust.
@@ -152,14 +152,14 @@ export default function Home() {
           <BlurFade delay={0.5}>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link href="/contact">
-                <ShimmerButton className="rounded-full bg-white text-secondary shadow-white/20">
+                <ShimmerButton className="rounded-full">
                   <BriefcaseIcon className="size-4" />
                   Find a job easily
                 </ShimmerButton>
               </Link>
               <Button
                 size="lg"
-                className="rounded-full bg-primary font-semibold text-primary-foreground hover:bg-primary/90"
+                className="rounded-full bg-foreground font-semibold text-background hover:bg-foreground/90"
                 asChild
               >
                 <Link href="/contact">Apply now</Link>
@@ -167,7 +167,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                className="rounded-full"
                 asChild
               >
                 <Link href="/contact">Contact us today</Link>
@@ -187,7 +187,7 @@ export default function Home() {
                     <StarIcon key={i} className="size-4 fill-current" />
                   ))}
                 </span>
-                <span className="text-sm text-white/65">
+                <span className="text-sm text-muted-foreground">
                   Trusted by clients across Accra &amp; beyond
                 </span>
               </div>
@@ -244,7 +244,7 @@ export default function Home() {
                     href={`/services#${service.slug}`}
                     className="group flex h-full flex-col border-b border-border/60 pb-6 transition-colors hover:border-primary"
                   >
-                    <span className="mb-4 inline-flex size-11 items-center justify-center rounded-full bg-secondary text-primary">
+                    <span className="mb-4 inline-flex size-11 items-center justify-center rounded-full bg-foreground text-primary">
                       <Icon className="size-5" />
                     </span>
                     <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-tight group-hover:text-primary">
@@ -266,7 +266,7 @@ export default function Home() {
             <div className="mt-12">
               <Button
                 size="lg"
-                className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                className="rounded-full bg-foreground text-background hover:bg-foreground/90"
                 asChild
               >
                 <Link href="/services">See all services in detail</Link>
@@ -277,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* Visual story */}
-      <section className="relative overflow-hidden bg-secondary py-24 text-secondary-foreground lg:py-28">
+      <section className="relative overflow-hidden bg-foreground py-24 text-background lg:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <BlurFade direction="right">
             <p className="text-sm font-semibold tracking-[0.2em] text-primary uppercase">
@@ -286,7 +286,7 @@ export default function Home() {
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-balance lg:text-4xl">
               Practical help. Professional delivery. People first.
             </h2>
-            <p className="mt-4 text-white/70">
+            <p className="mt-4 text-background/70">
               Whether you need a job, a registered company, a cleaner space, a
               surveyed plot, or a printed campaign — we show up ready to get it
               done.
@@ -301,14 +301,14 @@ export default function Home() {
                   <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
                     <CheckIcon className="size-3" />
                   </span>
-                  <span className="text-white/85">{item}</span>
+                  <span className="text-background/85">{item}</span>
                 </li>
               ))}
             </ul>
           </BlurFade>
 
           <BlurFade direction="left" delay={0.12}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-black sm:aspect-[5/4]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted sm:aspect-[5/4]">
               <Image
                 src="/brand/services-overview.png"
                 alt="Kharismerc services — property, cleaning, and business support"
@@ -316,7 +316,7 @@ export default function Home() {
                 className="object-cover object-left"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
             </div>
           </BlurFade>
         </div>
@@ -466,7 +466,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
                 size="lg"
-                className="rounded-full bg-secondary font-semibold text-secondary-foreground hover:bg-secondary/90"
+                className="rounded-full bg-foreground font-semibold text-background hover:bg-foreground/90"
                 asChild
               >
                 <Link href="/contact">Contact us today</Link>
