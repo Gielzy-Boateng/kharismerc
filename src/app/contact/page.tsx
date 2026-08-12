@@ -1,36 +1,52 @@
 import type { Metadata } from "next";
-import { MailIcon, MessageCircleIcon, StarIcon } from "lucide-react";
+import {
+  MailIcon,
+  MapPinIcon,
+  MessageCircleIcon,
+  PhoneIcon,
+} from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { ContactForm } from "@/components/template/contact-form";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact — Velora UI",
+  title: "Contact",
   description:
-    "Questions about Velora UI, the registry or the upcoming Pro tier? Get in touch.",
+    "Contact Kharismerc Business Solutions in Accra — call, email, or send a message for jobs, registration, cleaning, property, and more.",
 };
 
 const channels = [
   {
+    icon: <PhoneIcon className="size-5" />,
+    title: "Call us",
+    body: "Speak with our team about jobs, services, or bookings.",
+    detail: siteConfig.phones.join(" / "),
+    href: `tel:${siteConfig.phones[0].replace(/\s/g, "")}`,
+  },
+  {
     icon: <MailIcon className="size-5" />,
     title: "Email",
-    body: "For licensing and Pro questions.",
-    detail: "hello@velora.dev",
+    body: "Send details and we will follow up promptly.",
+    detail: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
   },
   {
     icon: <MessageCircleIcon className="size-5" />,
-    title: "GitHub discussions",
-    body: "Bug reports, component requests and Q&A.",
-    detail: "github.com/velora-ui",
+    title: "WhatsApp",
+    body: "Message us for quick questions and scheduling.",
+    detail: siteConfig.phones[0],
+    href: `https://wa.me/${siteConfig.whatsapp}`,
   },
   {
-    icon: <StarIcon className="size-5" />,
-    title: "Feature requests",
-    body: "Tell us which component to build next.",
-    detail: "Open an issue with the idea label",
+    icon: <MapPinIcon className="size-5" />,
+    title: "Visit / post",
+    body: "We serve clients across Accra from Galilea.",
+    detail: `${siteConfig.address} · ${siteConfig.addressDetail}`,
+    href: undefined,
   },
 ];
 
@@ -43,35 +59,58 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Talk to a <span className="text-primary">human</span>
+            Let&apos;s get your{" "}
+            <span className="text-primary">next step</span> moving
           </>
         }
-        description="Questions about components, the registry or Pro? Send a message — we read everything."
+        description="Looking for a job, registering a business, booking a clean, or starting a property or design project? Reach out — we are ready to help."
       />
 
       <section className="pb-28">
-        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:px-8">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 lg:grid-cols-[1fr_1.25fr] lg:gap-16 lg:px-8">
           <BlurFade direction="right">
             <div className="space-y-4">
-              {channels.map((channel) => (
-                <div
-                  key={channel.title}
-                  className="flex items-start gap-4 rounded-2xl border bg-card p-6"
-                >
-                  <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    {channel.icon}
-                  </span>
-                  <div>
-                    <h2 className="font-semibold">{channel.title}</h2>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {channel.body}
-                    </p>
-                    <p className="mt-2 text-sm font-medium text-primary">
-                      {channel.detail}
-                    </p>
+              {channels.map((channel) => {
+                const content = (
+                  <>
+                    <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                      {channel.icon}
+                    </span>
+                    <div>
+                      <h2 className="font-semibold">{channel.title}</h2>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {channel.body}
+                      </p>
+                      <p className="mt-2 text-sm font-semibold text-primary">
+                        {channel.detail}
+                      </p>
+                    </div>
+                  </>
+                );
+
+                return channel.href ? (
+                  <a
+                    key={channel.title}
+                    href={channel.href}
+                    className="flex items-start gap-4 rounded-2xl border bg-card p-6 transition-colors hover:border-primary"
+                    {...(channel.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div
+                    key={channel.title}
+                    className="flex items-start gap-4 rounded-2xl border bg-card p-6"
+                  >
+                    {content}
                   </div>
-                </div>
-              ))}
+                );
+              })}
+              <p className="pt-2 text-sm text-muted-foreground italic">
+                “{siteConfig.motto}”
+              </p>
             </div>
           </BlurFade>
           <BlurFade direction="left" delay={0.12}>

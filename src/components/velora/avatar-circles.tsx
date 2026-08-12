@@ -8,12 +8,12 @@ interface AvatarCirclesProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const tones = [
-  "bg-blue-600",
-  "bg-slate-600",
-  "bg-sky-700",
-  "bg-indigo-600",
-  "bg-slate-700",
-  "bg-blue-800",
+  "bg-neutral-900",
+  "bg-amber-500",
+  "bg-neutral-800",
+  "bg-yellow-600",
+  "bg-neutral-700",
+  "bg-amber-600",
 ];
 
 export function AvatarCircles({

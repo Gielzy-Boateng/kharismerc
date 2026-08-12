@@ -1,42 +1,70 @@
+import Image from "next/image";
 import Link from "next/link";
-import { SparklesIcon, StarIcon } from "lucide-react";
+import { PhoneIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/site-config";
 
+const nav = [
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function SiteHeader() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
-          <SparklesIcon className="size-5 text-primary" />
-          Velora UI
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 lg:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5">
+          <Image
+            src={siteConfig.logo}
+            alt="Kharismerc eagle logo"
+            width={40}
+            height={40}
+            className="size-9 shrink-0 object-contain"
+            priority
+          />
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.08em] uppercase sm:text-[0.95rem]">
+              Kharismerc
+            </span>
+            <span className="hidden text-[10px] font-semibold tracking-[0.18em] text-primary uppercase sm:block">
+              Business Solutions
+            </span>
+          </span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link href="/components" className="transition-colors hover:text-foreground">
-            Components
-          </Link>
-          <Link href="/themes" className="transition-colors hover:text-foreground">
-            Themes
-          </Link>
-          <Link href="/pricing" className="transition-colors hover:text-foreground">
-            Pricing
-          </Link>
-          <Link href="/blog" className="transition-colors hover:text-foreground">
-            Blog
-          </Link>
-          <Link href="/changelog" className="transition-colors hover:text-foreground">
-            Changelog
-          </Link>
+
+        <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
+
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button variant="outline" size="sm" asChild>
-            <a href={siteConfig.github} rel="noopener" target="_blank">
-              <StarIcon />
-              Star on GitHub
+          <Button
+            size="sm"
+            className="hidden rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 sm:inline-flex"
+            asChild
+          >
+            <a href={`tel:${siteConfig.phones[0].replace(/\s/g, "")}`}>
+              <PhoneIcon className="size-3.5" />
+              Call us
             </a>
+          </Button>
+          <Button
+            size="sm"
+            className="rounded-full font-semibold sm:hidden"
+            asChild
+          >
+            <Link href="/contact">Contact</Link>
           </Button>
         </div>
       </div>
